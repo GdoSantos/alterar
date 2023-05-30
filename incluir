@@ -1,0 +1,43 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class TelaDeLogin {
+    private static Map<String, String> usuarios = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean executando = true;
+
+        // Criando alguns usuários para exemplo
+        usuarios.put("usuario1", "senha1");
+        usuarios.put("usuario2", "senha2");
+
+        System.out.println("Bem-vindo! Por favor, faça o login.");
+
+        while (executando) {
+            System.out.print("Usuário: ");
+            String usuario = scanner.nextLine();
+
+            System.out.print("Senha: ");
+            String senha = scanner.nextLine();
+
+            if (validarLogin(usuario, senha)) {
+                System.out.println("Login bem-sucedido!");
+                executando = false;
+            } else {
+                System.out.println("Usuário ou senha inválidos. Tente novamente.");
+            }
+        }
+
+        scanner.close();
+    }
+
+    private static boolean validarLogin(String usuario, String senha) {
+        if (usuarios.containsKey(usuario)) {
+            String senhaArmazenada = usuarios.get(usuario);
+            return senha.equals(senhaArmazenada);
+        }
+        return false;
+    }
+}
