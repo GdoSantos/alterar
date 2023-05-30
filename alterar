@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class TelaDeLogin {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Bem-vindo! Por favor, faça o login.");
+        
+        System.out.print("Usuário: ");
+        String usuario = scanner.nextLine();
+        
+        System.out.print("Senha: ");
+        String senha = scanner.nextLine();
+        
+        // Aqui você pode adicionar a lógica de validação do login
+        // Por exemplo, comparar o usuário e a senha com dados armazenados em um banco de dados
+        
+        if (usuario.equals("admin") && senha.equals("12345")) {
+            System.out.println("Login bem-sucedido!");
+        } else {
+            System.out.println("Usuário ou senha inválidos. Tente novamente.");
+        }
+        
+        scanner.close();
+    }
+}
